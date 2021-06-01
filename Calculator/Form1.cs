@@ -35,7 +35,7 @@ namespace Calculator
             {
                 if(control is Button buttoncontrol && textBox1.Text=="." && char.IsNumber(Text[0]))
                 {
-                    control.Enabled = false;
+                    buttoncontrol.Enabled = false;
                 }
             }
 
