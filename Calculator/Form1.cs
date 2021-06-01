@@ -19,6 +19,7 @@ namespace Calculator
 
 
 
+
       
         private void button_Click(object sender, EventArgs e)
         {
@@ -191,33 +192,16 @@ namespace Calculator
 
         }
 
+        int counterForCreateToogleButton = 0;
         private void changecolour_Click(object sender, EventArgs e)
         {
-            string[] randomcolour = new string[] { "1", "2" };
-          
-
-            Random r1 = new Random();
-            int n = randomcolour.Length;
 
 
-
-            Console.WriteLine("\n");
-
-
-            while (n > 1)
-            {
-                n--;
-                int k = r1.Next(n + 1);
-                string value = randomcolour[k];
-                randomcolour[k] = randomcolour[n];
-                randomcolour[n] = value;
-            }
-
-            for (int i = 0; i < 100; i++)
-            {
+            counterForCreateToogleButton++;
+        
 
 
-                if (randomcolour[0] == "1")
+                if (counterForCreateToogleButton % 2==0)
                 {
 
                     BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(216)))), ((int)(((byte)(39)))));
@@ -244,7 +228,7 @@ namespace Calculator
 
                 }
 
-                if (randomcolour[0] == "2")
+                if (counterForCreateToogleButton % 2 != 0)
                 {
 
                     BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(180)))), ((int)(((byte)(209)))));
@@ -270,7 +254,7 @@ namespace Calculator
                     button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(180)))), ((int)(((byte)(209)))));
 
                 }
-            }
+            
 
         }
     }
