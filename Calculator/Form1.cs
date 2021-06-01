@@ -30,25 +30,34 @@ namespace Calculator
             button13.Enabled = true;
             button10.Enabled = true;
 
-            if (textBox1.Text == ".")
+            foreach (Control control in Controls)
             {
-                button1.Enabled = false;
-                button2.Enabled = false;
-                button3.Enabled = false;
-                button4.Enabled = false;
-                button5.Enabled = false;
-                button6.Enabled = false;
-                button7.Enabled = false;
-                button8.Enabled = false;
-                button9.Enabled = false;
-                button11.Enabled = false;
+                if(control is Button buttoncontrol && textBox1.Text=="." && char.IsNumber(Text[0]))
+                {
+                    control.Enabled = false;
+                }
             }
+
+            //if (textBox1.Text == ".")
+            //{
+            //    button1.Enabled = false;
+            //    button2.Enabled = false;
+            //    button3.Enabled = false;
+            //    button4.Enabled = false;
+            //    button5.Enabled = false;
+            //    button6.Enabled = false;
+            //    button7.Enabled = false;
+            //    button8.Enabled = false;
+            //    button9.Enabled = false;
+            //    button11.Enabled = false;
+            //}
 
 
             if (isOperationprocess)
             {
                 textBox1.Clear();
             }
+
             if (sender is Button button)
             {
 
@@ -156,49 +165,7 @@ namespace Calculator
 
   
 
-        private void equality_Click(object sender, EventArgs e)
-        {
-            if (sender is Button button)
-            {
-                isOperationprocess = true;
-                switch (operation)
-                {
-                    case "-":
 
-                        textBox1.Text = (result - Decimal.Parse(textBox1.Text)).ToString();
-
-                        break;
-                    case "÷":
-                        textBox1.Text = (result / Decimal.Parse(textBox1.Text)).ToString();
-
-                        break;
-                    case "✕":
-                        textBox1.Text = (result * Decimal.Parse(textBox1.Text)).ToString();
-
-                        break;
-                    case "+":
-                        textBox1.Text = (result + Decimal.Parse(textBox1.Text)).ToString();
-
-                        break;
-                    case "%":
-
-                        result = (Convert.ToDecimal(textBox1.Text) / Convert.ToDecimal(100));
-                        textBox1.Text = result.ToString();
-
-                        break;
-
-                    default:
-                        break;
-
-                }
-                operation = button.Text;
-                result = Decimal.Parse(textBox1.Text);
-
-           
-
-
-            }
-        }
 
         private void backspace_Click(object sender, EventArgs e)
         {
